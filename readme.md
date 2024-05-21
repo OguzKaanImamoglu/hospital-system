@@ -100,17 +100,20 @@ grpcurl -plaintext localhost:9090 HospitalService/ListAllPatients
 
 # Special Request: Average Age Report
 
-To fulfill the director's special request for an overview of the average age of patients by sex and per month for the past 10 years, with a response time of less than 200ms, the following steps were implemented:
+
+This part does not provide information about the current status of the repository. This section hypothetically explains what improvements can be made to realize the director's request.
+
+To fulfill the director's special request for an overview of the average age of patients by sex and per month for the past 10 years, with a response time of less than 200ms, the following steps can be implemented:
 
 ## 1. Data Modeling and Storage
 
 ### Database Schema
 
-A relational database schema was designed to include tables for patients, visits, and hospitals. The schema is structured to ensure that all relevant data about patient visits is captured and can be efficiently queried.
+A relational database schema is designed to include tables for patients, visits, and hospitals. The schema is structured to ensure that all relevant data about patient visits is captured and can be efficiently queried.
 
 ### Indexing
 
-Indexes were created on key columns such as visit date, sex, and hospital ID to optimize the performance of queries. Indexing these columns ensures that the database can quickly locate and retrieve the necessary data.
+Indexes are created on key columns such as visit date, sex, and hospital ID to optimize the performance of queries. Indexing these columns ensures that the database can quickly locate and retrieve the necessary data.
 
 ## 2. Data Aggregation and Preprocessing
 
@@ -124,7 +127,7 @@ A summary table is used to store the pre-aggregated monthly statistics. This tab
 
 ### Aggregation Job
 
-A scheduled job (e.g., cron job or using a tool like Apache Airflow) is set up to run at the end of each month. This job calculates the necessary statistics and populates the summary table with the pre-aggregated data.
+A scheduled job (e.g., cron job) is set up to run at the end of each month. This job calculates the necessary statistics and populates the summary table with the pre-aggregated data.
 
 ## 3. Real-Time Query
 
