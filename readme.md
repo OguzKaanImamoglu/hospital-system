@@ -1,6 +1,6 @@
 # Hospital Management System
 
-This project is a simple hospital management system implemented using Spring Boot with Hibernate and JPA, utilizing gRPC for communication. It allows for the storage and retrieval of information about patient treatments.
+This project is a simple hospital management system implemented using Spring Boot with Hibernate and JPA, utilizing gRPC for communication. It allows for the storage and retrieval of information about patients.
 
 ## Features
 
