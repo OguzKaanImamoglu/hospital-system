@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto"; // Import the Empty type
+
+option java_multiple_files = true;
+option java_package = "com.example.hospital";
+option java_outer_classname = "HospitalProto";
+
+service HospitalService {
+    rpc CreateHospital(CreateHospitalRequest) returns (HospitalResponse);
+    rpc ModifyHospital(ModifyHospitalRequest) returns (HospitalResponse);
+    rpc DeleteHospital (DeleteHospitalRequest) returns (google.protobuf.Empty);
+    rpc CreatePatient(CreatePatientRequest) returns (PatientResponse);
+    rpc ModifyPatient(ModifyPatientRequest) returns (PatientResponse);
+    rpc DeletePatient (DeletePatientRequest) returns (google.protobuf.Empty);
+    rpc RegisterPatient(RegisterPatientRequest) returns (google.protobuf.Empty);
+    rpc ListPatientsOfHospital(ListPatientsOfHospitalRequest) returns (ListPatientsResponse);
+    rpc ListHospitalsOfPatient(ListHospitalsOfPatientRequest) returns (ListHospitalsResponse);
+    rpc ListAllPatients (google.protobuf.Empty) returns (ListPatientsResponse);
+    rpc ListAllHospitals (google.protobuf.Empty) returns (ListHospitalsResponse);
+}
+
+message CreateHospitalRequest {
+    string name = 1;
+}
+
+message ModifyHospitalRequest {
+    int64 id = 1;
+    string name = 2;
+}
+
+message DeleteHospitalRequest {
+    int64 id = 1;
+}
+
+message CreatePatientRequest {
+    string name = 1;
+}
+
+message ModifyPatientRequest {
+    int64 id = 1;
+    string name = 2;
+}
+
+message DeletePatientRequest {
+    int64 id = 1;
+}
+
+message RegisterPatientRequest {
+    int64 patient_id = 1;
+    int64 hospital_id = 2;
+}
+
+message ListPatientsOfHospitalRequest {
+    int64 hospital_id = 1;
+}
+
+message ListHospitalsOfPatientRequest {
+    int64 patient_id = 1;
+}
+
+message HospitalResponse {
+    int64 id = 1;
+    string name = 2;
+}
+
+message PatientResponse {
+    int64 id = 1;
+    string name = 2;
+}
+
+message ListPatientsResponse {
+    repeated PatientResponse patients = 1;
+}
+
+message ListHospitalsResponse {
+    repeated HospitalResponse hospitals = 1;
+}
+
+message Empty {}
