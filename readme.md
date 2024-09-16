@@ -98,7 +98,7 @@ grpcurl -plaintext localhost:9090 HospitalService/ListAllHospitals
 grpcurl -plaintext localhost:9090 HospitalService/ListAllPatients
 ```
 
-# Special Request: Average Age Report
+# Average Age Report
 
 
 This part does not provide information about the current status of the repository. This section hypothetically explains what improvements can be made to realize the director's request.
